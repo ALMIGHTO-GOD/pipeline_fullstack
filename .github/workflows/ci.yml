@@ -19,14 +19,9 @@ jobs:
       with:
         node-version: "14"
 
-    - name: Instalar dependencias
-      run: npm install
-    
-    - name: Inicializar servidor
-      run: node index.js &
-    
-    - name: Esperar el servidor
-      run: sleep 5
-
-    - name: Ejecutar pruebas
-      run: npm test
+    - name: Instalar dependencias, iniciar servidor y ejecutar pruebas
+      run: |
+        npm install
+        node index.js &
+        sleep 5
+        npm test
