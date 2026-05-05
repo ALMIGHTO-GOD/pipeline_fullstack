@@ -25,8 +25,8 @@ jobs:
     - name: Inicializar servidor
       run: node index.js &
     
-    - name: Esperar a que el servidor esté completamente inicializado
-      run: sleep 5
+    - name: Esperar el servidor
+      run: sleep 10
 
     - name: Ejecutar pruebas
       run: npm test
