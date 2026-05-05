@@ -18,7 +18,7 @@ const req = http.request(options, (res) => {
 });
 
 req.on("error", () => {
-  console.error("Error con la conexion");
+  console.error("Error en la conexion");
   process.exit(1);
 });
 
