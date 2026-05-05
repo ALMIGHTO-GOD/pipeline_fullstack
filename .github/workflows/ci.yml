@@ -1,0 +1,32 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clonar repositorio
+      uses: actions/checkout@v2
+
+    - name: Instalar Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Instalar dependencias
+      run: npm install
+    
+    - name: Inicializar servidor
+      run: node index.js &
+    
+    -name: Esperar a que el servidor esté listo
+      run: sleep 5
+
+    - name: Ejecutar pruebas
+      run: npm test
